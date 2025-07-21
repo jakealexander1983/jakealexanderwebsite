@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Alexander - About</title>
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/site.webmanifest" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: #440012;
+            background-color: #EBEBEB;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #EBEBEB;
+            width: 100%;
+        }
+        
+        .header-content {
+            background-color: #EBEBEB;
+        }
+
+        .header-top {
+            padding: 1rem 0 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #D21F3C;
+            text-decoration: none;
+            line-height: 1.1;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        .tagline {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #D21F3C;
+            margin: 0;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #D21F3C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #0077B8;
+        }
+
+        .email-contact {
+            font-family: 'Nunito', sans-serif;
+            color: #D21F3C;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .email-contact a {
+            color: #D21F3C;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .email-contact a:hover {
+            color: #0077B8;
+        }
+
+        /* Navigation Menu - Now properly sticky inside main */
+        .nav-menu {
+            background-color: #8E1529;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .nav-links li {
+            margin: 0;
+            flex: 1;
+        }
+
+        .nav-links a {
+            font-family: 'Nunito', sans-serif;
+            color: #EBEBEB;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 1rem 0.4rem;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Much smaller padding for single-word menu items */
+        .nav-links a[href="about"],
+        .nav-links a[href="listen"],
+        .nav-links a[href="videos"] {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+        }
+
+        /* Extra padding for longer menu items */
+        .nav-links a[href="arrangements"],
+        .nav-links a[href="rounds"] {
+            padding-left: 2.0rem;
+            padding-right: 2.0rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #D21F3C;
+        }
+
+        .nav-links a.current-page {
+            background-color: #440012;
+            cursor: default;
+        }
+
+        .nav-links a.current-page:hover {
+            background-color: #440012;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background-color: #0077B8;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -7px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 0;
+        }
+
+        .content-section {
+            background-color: #EBEBEB;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(68,0,18,0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-image {
+            flex: 0 0 350px;
+        }
+
+        .content-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+            color: #440012;
+        }
+
+        .content-section a {
+            color: #0077B8;
+            text-decoration: none;
+        }
+
+        .content-section a:hover {
+            color: #D21F3C;
+            text-decoration: underline;
+        }
+
+        .content-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Page Title for Mobile */
+        .mobile-page-title {
+            display: none;
+            font-family: 'Nunito', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #D21F3C;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            padding: 0 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #B91C41, #8E1529);
+            color: #EBEBEB;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7FB8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-social-icon.facebook {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon.twitter {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon.youtube {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #D21F3C;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: #0077B8;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #D21F3C;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-page-title {
+                display: block;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .header-right {
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background-color: #8E1529;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(68,0,18,0.1);
+                padding: 0;
+                padding-top: 2rem;
+                z-index: 1002;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links::before {
+                content: "Menu";
+                color: #EBEBEB;
+                font-family: 'Nunito', sans-serif;
+                font-size: 2rem;
+                font-weight: 600;
+                display: block;
+                padding: 1rem 0 2rem 0;
+                border-bottom: 2px solid rgba(235,235,235,0.2);
+                margin-bottom: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 1.2rem 2rem;
+                font-size: 1.4rem;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 400;
+                text-align: center;
+                color: #EBEBEB;
+                display: block;
+            }
+
+            .logo {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+
+            .content-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .content-image {
+                flex: none;
+                order: -1;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="header-top" id="headerTop">
+                    <div class="header-left">
+                        <a href="#" class="logo">Jake Alexander</a>
+                        <p class="tagline">Composer / Arranger / Choir Leader / Cellist</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">f</a>
+                            <a href="#" class="social-icon">𝕏</a>
+                            <a href="#" class="social-icon">▶</a>
+                        </div>
+                        <p class="email-contact"><a href="mailto:jake@jakealexander.org">email: jake@jakealexander.org</a></p>
+                    </div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <nav class="nav-menu">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="about" class="current-page">About</a></li>
+                    <li><a href="listen">Listen</a></li>
+                    <li><a href="arrangements">Choir Arrangements</a></li>
+                    <li><a href="rounds">Rounds and Canons</a></li>
+                    <li><a href="videos">Videos</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="mobile-page-title">About</div>
+            <section id="about" class="content-section">
+                <div class="content-text">
+                    <p>Welcome to my website! I am a Cornish musician based in London. As well as directing various vocal ensembles, my career encompasses composing and arranging songs for choirs, and writing and recording music for contemporary dance. I sing and play electric cello and percussion, often using various electronic equipment such as a loop machine.</p>
+                    
+                    <p>After studying composition at Trinity Laban Conservatoire of Music and Dance I became a dance accompanist and worked for several years at various institutions including Laban, Middlesex University and Central School of Ballet. In 2017 I founded <a href="https://www.quaggycommunitychoir.com/" target="_blank">Quaggy Community Choir</a> in Lewisham along with my colleague, choir manager Priya Bose, and eventually became a full time musical director. I currently lead <a href="http://raised-voices.org.uk/" target="_blank">Raised Voices</a>, a political protest choir, and a workplace choir at the Old Royal Naval College, Greenwich. I am also a founding director and co-leader of <a href="https://cribnotes.co.uk/" target="_blank">Crib Notes</a>, a parents and babies choir with branches across South London.</p>
+                    
+                    <p>In addition to my choir activities, I am a long-term collaborator with <a href="http://www.ilaproject.com/" target="_blank">Dancing Strong</a>, a dance company led by Adesola Akinleye, which specialises in creating work for young audiences. I have composed and arranged music for many other purposes, including radio plays and tv adverts. I have also written and performed extensively with experimental folk band, <a href="http://theseakings.co.uk" target="_blank">The Sea Kings</a>. Members have since scattered to various parts of the world, but the group was a huge part of my life from around 2008 to 2018 and took me to many interesting places, including Glastonbury Festival.</p>
+                    
+                    <p>Feel free to browse! There are plenty of things here to listen to and watch – some will appeal mainly to singers and choir leaders, and some will hopefully be enjoyed by all. If you'd like to collaborate with me, commission a composition or arrangement, hire me to direct your choir or lead a singing workshop, or get in touch for any reason whatsoever, that would be lovely.</p>
+                </div>
+                <div class="content-image">
+                    <img src="jake-alexander-conducting.jpeg" alt="Jake Alexander conducting" />
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="#" class="footer-social-icon facebook">f</a>
+                <a href="#" class="footer-social-icon twitter">𝕏</a>
+                <a href="#" class="footer-social-icon youtube">▶</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Update active navigation link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Remove active class from all links
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // Special handling for "About" link - scroll to top
+                if (href === '#about') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Back to top button functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>

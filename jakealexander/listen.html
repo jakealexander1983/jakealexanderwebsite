@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jake Alexander - Listen</title>
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="MyWebSite" />
+<link rel="manifest" href="/site.webmanifest" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            line-height: 1.6;
+            color: #440012;
+            background-color: #EBEBEB;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #EBEBEB;
+            width: 100%;
+        }
+        
+        .header-content {
+            background-color: #EBEBEB;
+        }
+
+        .header-top {
+            padding: 1rem 0 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            flex: 1;
+        }
+
+        .logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #D21F3C;
+            text-decoration: none;
+            line-height: 1.1;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        .tagline {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #D21F3C;
+            margin: 0;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #D21F3C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #0077B8;
+        }
+
+        .email-contact {
+            font-family: 'Nunito', sans-serif;
+            color: #D21F3C;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .email-contact a {
+            color: #D21F3C;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .email-contact a:hover {
+            color: #0077B8;
+        }
+
+        /* Navigation Menu - Now properly sticky inside main */
+        .nav-menu {
+            background-color: #8E1529;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .nav-links li {
+            margin: 0;
+            flex: 1;
+        }
+
+        .nav-links a {
+            font-family: 'Nunito', sans-serif;
+            color: #EBEBEB;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding: 1rem 0.4rem;
+            display: block;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Much smaller padding for single-word menu items */
+        .nav-links a[href="index"],
+        .nav-links a[href="listen"],
+        .nav-links a[href="videos"] {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+        }
+
+        /* Extra padding for longer menu items */
+        .nav-links a[href="arrangements"],
+        .nav-links a[href="rounds"] {
+            padding-left: 2.0rem;
+            padding-right: 2.0rem;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: #D21F3C;
+        }
+
+        .nav-links a.current-page {
+            background-color: #440012;
+            cursor: default;
+        }
+
+        .nav-links a.current-page:hover {
+            background-color: #440012;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background-color: #0077B8;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -7px);
+        }
+
+        /* Main Content */
+        main {
+            padding: 0;
+        }
+
+        .content-section {
+            background-color: #EBEBEB;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(68,0,18,0.1);
+        }
+
+        .content-text {
+            flex: 1;
+        }
+
+        .content-text p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+            color: #440012;
+        }
+
+        .content-section a {
+            color: #0077B8;
+            text-decoration: none;
+        }
+
+        .content-section a:hover {
+            color: #D21F3C;
+            text-decoration: underline;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #D21F3C;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #D21F3C;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        /* Audio Player Styles */
+        .audio-section {
+            margin: 1.5rem 0;
+        }
+
+        .audio-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #8E1529;
+            margin-bottom: 0.5rem;
+        }
+
+        audio {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        /* Page Title for Mobile */
+        .mobile-page-title {
+            display: none;
+            font-family: 'Nunito', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #D21F3C;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            padding: 0 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #B91C41, #8E1529);
+            color: #EBEBEB;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 0.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #2E7FB8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-social-icon.facebook {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon.twitter {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon.youtube {
+            background-color: #2E7FB8;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #D21F3C;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background-color: #0077B8;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #D21F3C;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-page-title {
+                display: block;
+            }
+
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+            }
+
+            .header-right {
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                flex-direction: column;
+                background-color: #8E1529;
+                width: 100%;
+                height: 100vh;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(68,0,18,0.1);
+                padding: 0;
+                padding-top: 2rem;
+                z-index: 1002;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links::before {
+                content: "Menu";
+                color: #EBEBEB;
+                font-family: 'Nunito', sans-serif;
+                font-size: 2rem;
+                font-weight: 600;
+                display: block;
+                padding: 1rem 0 2rem 0;
+                border-bottom: 2px solid rgba(235,235,235,0.2);
+                margin-bottom: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 1.2rem 2rem;
+                font-size: 1.4rem;
+                font-family: 'Nunito', sans-serif;
+                font-weight: 400;
+                text-align: center;
+                color: #EBEBEB;
+                display: block;
+            }
+
+            .logo {
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+                font-weight: 700;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="header-top" id="headerTop">
+                    <div class="header-left">
+                        <a href="#" class="logo">Jake Alexander</a>
+                        <p class="tagline">Composer / Arranger / Choir Leader / Cellist</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">f</a>
+                            <a href="#" class="social-icon">𝕏</a>
+                            <a href="#" class="social-icon">▶</a>
+                        </div>
+                        <p class="email-contact"><a href="mailto:jake@jakealexander.org">email: jake@jakealexander.org</a></p>
+                    </div>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <nav class="nav-menu">
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="index">About</a></li>
+                    <li><a href="listen" class="current-page">Listen</a></li>
+                    <li><a href="arrangements">Choir Arrangements</a></li>
+                    <li><a href="rounds">Rounds and Canons</a></li>
+                    <li><a href="videos">Videos</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="mobile-page-title">Listen</div>
+            <section class="content-section">
+                <div class="content-text">
+                    <p>A selection of some of my work can be found below. For more, please see my <a href="https://jakealexandermusic.bandcamp.com" target="_blank">Bandcamp</a> page, or my <a href="https://soundcloud.com/jakealexandermusic" target="_blank">Soundcloud</a> page.</p>
+
+                    <h2 class="section-header">Pieces for Dance</h2>
+                    <p>These pieces were all written for <a href="https://www.dancingstrong.com" target="_blank">Dancing Strong</a>. Desire Lines is entirely made up of manipulated sounds of dancers moving on pebbles on a beach near Lowestoft. The Goose and Common is an elaborate round based on a 17th Century English folk poem. Vocals aside, Dover Beach was created using a single field recording of seagulls and surf. The song also features a selection of words from Matthew Arnold's poem of the same name.</p>
+                    
+                    <div class="audio-section">
+                        <div class="audio-title">Desire Lines</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">The Goose and Common</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Dover Beach</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Dover Beach – a cappella</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <h2 class="section-header">Folk Songs for Choir</h2>
+                    <p>Down in the River to Pray is an African-American spiritual, sung by <a href="https://www.eleanorrastall.co.uk" target="_blank">Eleanor Rastall</a>; Cradle Spell of Dunvegan is a Hebridean lullaby, sung by Louise Salmon, Eleanor Rastall and myself; and The Birch Tree is my interpretation of a Russian folk song, again sung by Eleanor Rastall. For more songs like these, please visit the <a href="https://jakealexander.org/choir-arrangements/" target="_blank">choir arrangement</a> page on this site – many of the pieces, especially in the "Folk Songs and Others" section, have real recordings associated with them, which you can access by clicking on their Youtube links.</p>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Down in the River to Pray</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Cradle Spell of Dunvegan</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">The Birch Tree</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <h2 class="section-header">Songs for The Sea Kings</h2>
+                    <p>Here are a couple of songs I wrote for my folk band, <a href="https://theseakings.co.uk" target="_blank">The Sea Kings</a>. Strays of St Ives is about the town I grew up in, and Lyonnesse uses words from a poem by Thomas Hardy. For more songs by The Sea Kings, please visit our <a href="https://soundcloud.com/theseakings" target="_blank">Soundcloud</a> page.</p>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Strays of St Ives</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Lyonnesse</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <h2 class="section-header">Elms Close</h2>
+                    <p>Elms Close is a collection of electric cello music that I released in 2016. A lot of this music was also written for contemporary dance, and much of it is based on folk songs (The Lover's Ghost, and Strawberry Leaves). This album was created using sounds derived exclusively from my cello and my voice.</p>
+
+                    <div class="audio-section">
+                        <div class="audio-title">Elms Close (Album)</div>
+                        <audio controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="#" class="footer-social-icon facebook">f</a>
+                <a href="#" class="footer-social-icon twitter">𝕏</a>
+                <a href="#" class="footer-social-icon youtube">▶</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Update active navigation link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Remove active class from all links
+                document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Close mobile menu
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                // Special handling for "About" link - scroll to top
+                if (href === '#about') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Back to top button functionality
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
