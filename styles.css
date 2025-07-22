@@ -294,6 +294,11 @@ audio {
     display: block;
 }
 
+/* Rounds page specific - content section without flexbox layout */
+.rounds-page .content-section {
+    display: block;
+}
+
 /* Table styles for arrangements page */
 .table-wrapper {
     overflow-x: auto;
@@ -350,6 +355,69 @@ audio {
 .arrangements-table td:first-child {
     font-weight: 500;
     min-width: 200px;
+}
+
+/* Rounds table styles - inherits most from arrangements table */
+.rounds-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(68,0,18,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.rounds-table th,
+.rounds-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+    vertical-align: top;
+}
+
+.rounds-table th {
+    background-color: #8E1529;
+    color: #EBEBEB;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.rounds-table tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+.rounds-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.rounds-table tbody tr:nth-child(even):hover {
+    background-color: #f0f0f0;
+}
+
+.rounds-table a {
+    color: #0077B8;
+    text-decoration: none;
+}
+
+.rounds-table a:hover {
+    color: #D21F3C;
+    text-decoration: underline;
+}
+
+.rounds-table td:first-child {
+    font-weight: 500;
+    min-width: 160px;
+}
+
+.rounds-table td:nth-child(4) {
+    max-width: 300px;
+}
+
+.rounds-table td:last-child {
+    text-align: center;
+    font-weight: 600;
+    min-width: 80px;
 }
 
 /* Page Title for Mobile */
@@ -559,6 +627,21 @@ footer {
 
     .arrangements-table td:first-child {
         min-width: 150px;
+    }
+
+    .rounds-table th,
+    .rounds-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .rounds-table td:first-child {
+        min-width: 120px;
+    }
+
+    .rounds-table td:nth-child(4) {
+        max-width: 200px;
+        font-size: 0.85rem;
     }
 }
 
