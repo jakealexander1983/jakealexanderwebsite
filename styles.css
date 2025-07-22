@@ -289,6 +289,69 @@ audio {
     display: block;
 }
 
+/* Arrangements page specific - content section without flexbox layout */
+.arrangements-page .content-section {
+    display: block;
+}
+
+/* Table styles for arrangements page */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.arrangements-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(68,0,18,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.arrangements-table th,
+.arrangements-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+    vertical-align: top;
+}
+
+.arrangements-table th {
+    background-color: #8E1529;
+    color: #EBEBEB;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.arrangements-table tbody tr:hover {
+    background-color: #f8f8f8;
+}
+
+.arrangements-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.arrangements-table tbody tr:nth-child(even):hover {
+    background-color: #f0f0f0;
+}
+
+.arrangements-table a {
+    color: #0077B8;
+    text-decoration: none;
+}
+
+.arrangements-table a:hover {
+    color: #D21F3C;
+    text-decoration: underline;
+}
+
+.arrangements-table td:first-child {
+    font-weight: 500;
+    min-width: 200px;
+}
+
 /* Page Title for Mobile */
 .mobile-page-title {
     display: none;
@@ -485,6 +548,17 @@ footer {
     .back-to-top {
         bottom: 1rem;
         right: 1rem;
+    }
+
+    /* Mobile table styles */
+    .arrangements-table th,
+    .arrangements-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .arrangements-table td:first-child {
+        min-width: 150px;
     }
 }
 
