@@ -55,7 +55,48 @@
     <link rel="preload" href="fonts/opensans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     
     <link href="fonts/optimized-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Critical CSS inlined for faster rendering -->
+    <style>
+        /* Critical CSS for Above-the-Fold Content */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Open Sans',Arial,sans-serif;line-height:1.6;color:#440012;background-color:#EBEBEB}
+        .container{max-width:1000px;margin:0 auto;padding:0 40px}
+        header{background-color:#EBEBEB;width:100%}
+        .header-content{background-color:#EBEBEB}
+        .header-top{padding:1rem 0 0.5rem 0;display:flex;justify-content:space-between;align-items:center}
+        .header-left{flex:1}
+        .logo{font-family:'Nunito',sans-serif;font-size:2.5rem;font-weight:400;color:#D21F3C;text-decoration:none;line-height:1.1;margin-bottom:0.2rem;display:block}
+        .tagline{font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:700;color:#D21F3C;margin:0}
+        .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
+        .social-icons{display:flex;gap:0.5rem}
+        .social-icon{width:40px;height:40px;background-color:#D21F3C;display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;font-weight:bold;font-size:1.2rem;transition:background-color 0.3s ease}
+        .nav-menu{background-color:#8E1529;padding:0;position:sticky;top:0;z-index:1001;width:100%;margin-bottom:1rem}
+        .nav-links{display:flex;justify-content:space-between;list-style:none;margin:0;padding:0;width:100%}
+        .nav-links li{margin:0;flex:1}
+        .nav-links a{font-family:'Nunito',sans-serif;color:#EBEBEB;text-decoration:none;font-size:1.2rem;font-weight:400;padding:1rem 0.4rem;display:block;transition:background-color 0.3s ease;text-align:center;white-space:nowrap}
+        .content-section{background-color:#EBEBEB;padding:2rem;border-radius:8px;margin-bottom:2rem;box-shadow:0 2px 10px rgba(68,0,18,0.1);display:flex;gap:2rem;align-items:flex-start}
+        .content-text{flex:1}
+        .content-image{flex:0 0 350px}
+        .content-text p{margin-bottom:1rem;font-size:1.1rem;text-align:justify;color:#440012}
+        .content-image img{width:100%;height:auto;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+        @media (max-width:768px){
+        .container{padding:0 10px}
+        .header-top{flex-direction:column;gap:1rem;align-items:center;text-align:center}
+        .logo{font-size:2rem;font-weight:600}
+        .tagline{font-size:1.1rem;font-weight:700}
+        .content-section{flex-direction:column;gap:1rem}
+        .content-image{flex:none;order:-1}
+        .nav-links{position:fixed;left:-100%;top:0;flex-direction:column;background-color:#8E1529;width:100%;height:100vh;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(68,0,18,0.1);padding:0;padding-top:2rem;z-index:1002}
+        .nav-links.active{left:0}
+        .hamburger{display:flex;flex-direction:column;cursor:pointer;padding:5px;background:none;border:none}
+        .hamburger span{width:30px;height:4px;background-color:#0077B8;margin:4px 0;transition:0.3s}
+        }
+    </style>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body>
     <header id="header">
@@ -109,9 +150,27 @@
                     
                     <p>Feel free to browse! There are plenty of things here to listen to and watch – some will appeal mainly to singers and choir leaders, and some will hopefully be enjoyed by all. If you'd like to collaborate with me, commission a composition or arrangement, hire me to direct your choir or lead a singing workshop, or get in touch for any reason whatsoever, that would be lovely.</p>
                 </div>
-                <div class="content-image">
-                    <img src="jake-alexander-conducting.jpeg" alt="Jake Alexander conducting" />
-                </div>
+                                    <div class="content-image">
+                        <picture>
+                            <source 
+                                srcset="images/responsive/jake-alexander-400.webp 400w,
+                                        images/responsive/jake-alexander-600.webp 600w,
+                                        images/responsive/jake-alexander-800.webp 800w,
+                                        images/responsive/jake-alexander-1200.webp 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1000px) 350px, 350px"
+                                type="image/webp">
+                            <source 
+                                srcset="images/responsive/jake-alexander-400.jpeg 400w,
+                                        images/responsive/jake-alexander-600.jpeg 600w,
+                                        images/responsive/jake-alexander-800.jpeg 800w,
+                                        images/responsive/jake-alexander-1200.jpeg 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1000px) 350px, 350px"
+                                type="image/jpeg">
+                            <img src="images/responsive/jake-alexander-600.jpeg" 
+                                 alt="Jake Alexander conducting" 
+                                 loading="lazy">
+                        </picture>
+                    </div>
             </section>
         </div>
     </main>
