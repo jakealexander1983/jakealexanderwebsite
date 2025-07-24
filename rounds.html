@@ -50,7 +50,11 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Preload critical fonts for better performance -->
+    <link rel="preload" href="fonts/nunito-400.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/opensans-400.ttf" as="font" type="font/ttf" crossorigin>
+    
+    <link href="fonts/local-fonts.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="rounds-page">
