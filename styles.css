@@ -1,5 +1,14 @@
 /* Non-Critical CSS - Tables, Footer, Audio, and Enhanced Features */
 
+/* Font Loading Optimization */
+.logo, .tagline, .nav-links a, .nav-links::before {
+    font-family: 'Nunito', Arial, Helvetica, sans-serif !important;
+}
+
+body, .content-text, .content-section {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+}
+
 /* Enhanced Navigation States */
 .nav-links a[href="about"],
 .nav-links a[href="index"],
