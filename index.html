@@ -51,10 +51,10 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Preload critical fonts AND LCP image for optimal performance -->
-    <link rel="preload" href="fonts/nunito-400-latin.woff2?v=3" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/opensans-400-latin.woff2?v=3" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/nunito-400-fallback.ttf?v=3" as="font" type="font/truetype" crossorigin>
-    <link rel="preload" href="fonts/opensans-400-fallback.ttf?v=3" as="font" type="font/truetype" crossorigin>
+    <link rel="preload" href="fonts/nunito-400-latin.woff2?v=4" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/opensans-400-latin.woff2?v=4" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/nunito-400-fallback.ttf?v=4" as="font" type="font/truetype" crossorigin>
+    <link rel="preload" href="fonts/opensans-400-fallback.ttf?v=4" as="font" type="font/truetype" crossorigin>
     <link rel="preload" href="images/responsive/jake-alexander-375.webp" as="image" type="image/webp" media="(max-width: 400px)" fetchpriority="high">
     <link rel="preload" href="images/responsive/jake-alexander-600.webp" as="image" type="image/webp" media="(min-width: 401px)" fetchpriority="high">
     
@@ -67,30 +67,38 @@
     
     <!-- Inline font CSS to eliminate critical request chain -->
     <style>
+        /* Anti-flicker font loading strategy */
+        html {
+            visibility: hidden;
+        }
+        html.fonts-loaded {
+            visibility: visible;
+        }
+        
         /* Optimized Local Fonts CSS - Fixed paths and fallbacks */
         @font-face {
           font-family: 'Nunito';
           font-style: normal;
           font-weight: 400;
-          font-display: swap;
-          src: url('fonts/nunito-400-latin.woff2?v=3') format('woff2'),
-               url('fonts/nunito-400-fallback.ttf?v=3') format('truetype');
+          font-display: block;
+          src: url('fonts/nunito-400-latin.woff2?v=4') format('woff2'),
+               url('fonts/nunito-400-fallback.ttf?v=4') format('truetype');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
         @font-face {
           font-family: 'Nunito';
           font-style: normal;
           font-weight: 600;
-          font-display: swap;
-          src: url('fonts/nunito-600-latin.woff2') format('woff2');
+          font-display: block;
+          src: url('fonts/nunito-600-latin.woff2?v=4') format('woff2');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
         @font-face {
           font-family: 'Nunito';
           font-style: normal;
           font-weight: 700;
-          font-display: swap;
-          src: url('fonts/nunito-700-latin.woff2') format('woff2');
+          font-display: block;
+          src: url('fonts/nunito-700-latin.woff2?v=4') format('woff2');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
         @font-face {
@@ -98,9 +106,9 @@
           font-style: normal;
           font-weight: 400;
           font-stretch: normal;
-          font-display: swap;
-          src: url('fonts/opensans-400-latin.woff2?v=3') format('woff2'),
-               url('fonts/opensans-400-fallback.ttf?v=3') format('truetype');
+          font-display: block;
+          src: url('fonts/opensans-400-latin.woff2?v=4') format('woff2'),
+               url('fonts/opensans-400-fallback.ttf?v=4') format('truetype');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
         @font-face {
@@ -108,8 +116,8 @@
           font-style: normal;
           font-weight: 500;
           font-stretch: normal;
-          font-display: swap;
-          src: url('fonts/opensans-500-latin.woff2') format('woff2');
+          font-display: block;
+          src: url('fonts/opensans-500-latin.woff2?v=4') format('woff2');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
         @font-face {
@@ -117,8 +125,8 @@
           font-style: normal;
           font-weight: 600;
           font-stretch: normal;
-          font-display: swap;
-          src: url('fonts/opensans-600-latin.woff2') format('woff2');
+          font-display: block;
+          src: url('fonts/opensans-600-latin.woff2?v=4') format('woff2');
           unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
         }
     </style>
@@ -168,7 +176,7 @@
         .nav-links.active{left:0}
         .nav-links li{margin:0;width:100%;flex:none}
         .nav-links a{padding:0.6rem 2rem;font-size:1.3rem;border-bottom:1px solid rgba(235,235,235,0.1);font-family:'Nunito',Arial,Helvetica,sans-serif}
-        .nav-links::before{content:"Menu";color:#EBEBEB;font-family:'Nunito',Arial,Helvetica,sans-serif;font-size:1.8rem;font-weight:600;display:block;padding:0.3rem 0 0.5rem 0;border-bottom:2px solid rgba(235,235,235,0.2);margin-bottom:0.3rem;width:100%;text-align:center;position:absolute;top:0.5rem}
+        .nav-links::before{content:"Menu";color:#EBEBEB;font-family:'Nunito',Arial,Helvetica,sans-serif;font-size:1.8rem;font-weight:600;display:block;padding:0.2rem 0 0.3rem 0;border-bottom:2px solid rgba(235,235,235,0.2);margin-bottom:0.1rem;width:100%;text-align:center;position:absolute;top:0.3rem}
         .hamburger{display:flex;flex-direction:column;cursor:pointer;padding:5px;background:none;border:none;position:relative;z-index:1003}
         .hamburger span{width:30px;height:4px;background-color:#0077B8;margin:4px 0;transition:0.3s}
 
@@ -202,7 +210,7 @@
                 <div class="header-top" id="headerTop">
                     <div class="header-left">
                         <a href="#" class="logo">Jake Alexander</a>
-                        <p class="tagline">Composer / Arranger / Choir Leader / Cellist</p>
+                        <p class="tagline">Composer / Arranger / <span style="white-space: nowrap;">Choir Leader / Cellist</span></p>
                     </div>
                     <div class="header-right">
                         <div class="social-icons">
@@ -293,6 +301,23 @@
     <a href="#" class="back-to-top" id="backToTop">↑</a>
 
     <script>
+        // Anti-flicker font loading
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show page once fonts are ready or after timeout
+            if (document.fonts) {
+                document.fonts.ready.then(function() {
+                    document.documentElement.classList.add('fonts-loaded');
+                });
+                // Fallback timeout to prevent indefinite hiding
+                setTimeout(function() {
+                    document.documentElement.classList.add('fonts-loaded');
+                }, 2000);
+            } else {
+                // Fallback for browsers without font loading API
+                document.documentElement.classList.add('fonts-loaded');
+            }
+        });
+
         // Enhanced hamburger menu functionality
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
