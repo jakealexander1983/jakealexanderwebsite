@@ -1,149 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Non-Critical CSS - Tables, Footer, Audio, and Enhanced Features */
 
-body {
-    font-family: 'Open Sans', Arial, sans-serif;
-    line-height: 1.6;
-    color: #440012;
-    background-color: #EBEBEB;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
-
-/* Header Styles */
-header {
-    background-color: #EBEBEB;
-    width: 100%;
-}
-
-.header-content {
-    background-color: #EBEBEB;
-}
-
-.header-top {
-    padding: 1rem 0 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-left {
-    flex: 1;
-}
-
-.logo {
-    font-family: 'Nunito', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    color: #D21F3C;
-    text-decoration: none;
-    line-height: 1.1;
-    margin-bottom: 0.2rem;
-    display: block;
-}
-
-.tagline {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #D21F3C;
-    margin: 0;
-}
-
-.header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.5rem;
-}
-
-.social-icons {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #D21F3C;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-.social-icon:hover {
-    background-color: #0077B8;
-}
-
-.email-contact {
-    font-family: 'Nunito', sans-serif;
-    color: #D21F3C;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-.email-contact a {
-    color: #D21F3C;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.email-contact a:hover {
-    color: #0077B8;
-}
-
-/* Navigation Menu - Now properly sticky inside main */
-.nav-menu {
-    background-color: #8E1529;
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 1001;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.nav-links li {
-    margin: 0;
-    flex: 1;
-}
-
-.nav-links a {
-    font-family: 'Nunito', sans-serif;
-    color: #EBEBEB;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    padding: 1rem 0.4rem;
-    display: block;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* Much smaller padding for single-word menu items */
+/* Enhanced Navigation States */
 .nav-links a[href="about"],
 .nav-links a[href="index"],
 .nav-links a[href="listen"],
@@ -152,7 +9,6 @@ header {
     padding-right: 0.2rem;
 }
 
-/* Extra padding for longer menu items */
 .nav-links a[href="arrangements"],
 .nav-links a[href="rounds"] {
     padding-left: 2.0rem;
@@ -173,24 +29,7 @@ header {
     background-color: #440012;
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 5px;
-    background: none;
-    border: none;
-}
-
-.hamburger span {
-    width: 30px;
-    height: 4px;
-    background-color: #0077B8;
-    margin: 4px 0;
-    transition: 0.3s;
-}
-
+/* Hamburger Animation */
 .hamburger.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-6px, 7px);
 }
@@ -203,37 +42,7 @@ header {
     transform: rotate(45deg) translate(-6px, -7px);
 }
 
-/* Main Content */
-main {
-    padding: 0;
-}
-
-.content-section {
-    background-color: #EBEBEB;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(68,0,18,0.1);
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-}
-
-.content-text {
-    flex: 1;
-}
-
-.content-image {
-    flex: 0 0 350px;
-}
-
-.content-text p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-    text-align: justify;
-    color: #440012;
-}
-
+/* Enhanced Link Styles */
 .content-section a {
     color: #0077B8;
     text-decoration: none;
@@ -244,14 +53,7 @@ main {
     text-decoration: underline;
 }
 
-.content-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Section Headers - for listen page */
+/* Section Headers */
 .section-header {
     font-family: 'Nunito', sans-serif;
     font-size: 1.6rem;
@@ -266,7 +68,7 @@ main {
     margin-top: 0;
 }
 
-/* Audio Player Styles - for listen page */
+/* Audio Player Styles */
 .audio-section {
     margin: 1.5rem 0;
 }
@@ -284,22 +86,19 @@ audio {
     margin-bottom: 1rem;
 }
 
-/* Listen page specific - content section without flexbox layout */
+/* Page-specific layouts */
 .listen-page .content-section {
     display: block;
 }
 
-/* Arrangements page specific - content section without flexbox layout */
 .arrangements-page .content-section {
     display: block;
 }
 
-/* Rounds page specific - content section without flexbox layout */
 .rounds-page .content-section {
     display: block;
 }
 
-/* Videos page specific - content section without flexbox layout */
 .videos-page .content-section {
     display: block;
 }
@@ -362,7 +161,7 @@ audio {
     min-width: 200px;
 }
 
-/* Rounds table styles - inherits most from arrangements table */
+/* Rounds table styles */
 .rounds-table {
     width: 100%;
     border-collapse: collapse;
@@ -447,7 +246,7 @@ audio {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
     background-color: #f0f0f0;
     border-radius: 8px;
     overflow: hidden;
@@ -462,7 +261,6 @@ audio {
     border: none;
 }
 
-/* Placeholder styling for videos without embed IDs */
 .video-wrapper:empty::after {
     content: "Video will be embedded here";
     position: absolute;
@@ -573,94 +371,8 @@ footer {
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
     .mobile-page-title {
         display: block;
-    }
-
-    .header-top {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
-        text-align: center;
-    }
-
-    .header-right {
-        align-items: center;
-    }
-
-    .nav-links {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        flex-direction: column;
-        background-color: #8E1529;
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(68,0,18,0.1);
-        padding: 0;
-        padding-top: 2rem;
-        z-index: 1002;
-    }
-
-    .nav-links.active {
-        left: 0;
-    }
-
-    .nav-links::before {
-        content: "Menu";
-        color: #EBEBEB;
-        font-family: 'Nunito', sans-serif;
-        font-size: 2rem;
-        font-weight: 600;
-        display: block;
-        padding: 1rem 0 2rem 0;
-        border-bottom: 2px solid rgba(235,235,235,0.2);
-        margin-bottom: 1rem;
-    }
-
-    .nav-links li {
-        margin: 0;
-        width: 100%;
-    }
-
-    .nav-links a {
-        padding: 1.2rem 2rem;
-        font-size: 1.4rem;
-        font-family: 'Nunito', sans-serif;
-        font-weight: 400;
-        text-align: center;
-        color: #EBEBEB;
-        display: block;
-    }
-
-    .logo {
-        font-size: 2rem;
-        font-weight: 600;
-    }
-
-    .tagline {
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-
-    .content-section {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .content-image {
-        flex: none;
-        order: -1;
     }
 
     .footer-content {
@@ -712,14 +424,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 1.8rem;
-    }
-
-    .tagline {
-        font-size: 0.9rem;
-    }
-
     .social-icon {
         width: 35px;
         height: 35px;
