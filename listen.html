@@ -50,12 +50,119 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <!-- Preload critical fonts for better performance -->
+    <!-- Preload critical fonts AND LCP image for optimal performance -->
     <link rel="preload" href="fonts/nunito-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/opensans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
     
-    <link href="fonts/optimized-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Resource hints for performance -->
+    <link rel="prefetch" href="videos.html">
+    <link rel="prefetch" href="listen.html">
+    
+    <!-- Inline font CSS to eliminate critical request chain -->
+    <style>
+        /* Optimized Local Fonts CSS - Inlined to avoid request chain */
+        @font-face {
+          font-family: 'Nunito';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url('./fonts/nunito-400-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+        @font-face {
+          font-family: 'Nunito';
+          font-style: normal;
+          font-weight: 600;
+          font-display: swap;
+          src: url('./fonts/nunito-600-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+        @font-face {
+          font-family: 'Nunito';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: url('./fonts/nunito-700-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-stretch: normal;
+          font-display: swap;
+          src: url('./fonts/opensans-400-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 500;
+          font-stretch: normal;
+          font-display: swap;
+          src: url('./fonts/opensans-500-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+        @font-face {
+          font-family: 'Open Sans';
+          font-style: normal;
+          font-weight: 600;
+          font-stretch: normal;
+          font-display: swap;
+          src: url('./fonts/opensans-600-latin.woff2') format('woff2');
+          unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+        }
+    </style>
+    
+    <!-- Critical CSS inlined for faster rendering -->
+    <style>
+        /* Critical CSS for Above-the-Fold Content */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Open Sans',Arial,sans-serif;line-height:1.6;color:#440012;background-color:#EBEBEB}
+        .container{max-width:1000px;margin:0 auto;padding:0 40px}
+        header{background-color:#EBEBEB;width:100%}
+        .header-content{background-color:#EBEBEB}
+        .header-top{padding:1rem 0 0.5rem 0;display:flex;justify-content:space-between;align-items:center}
+        .header-left{flex:1}
+        .logo{font-family:'Nunito',sans-serif;font-size:2.5rem;font-weight:400;color:#D21F3C;text-decoration:none;line-height:1.1;margin-bottom:0.2rem;display:block}
+        .tagline{font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:700;color:#D21F3C;margin:0}
+        .header-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
+        .social-icons{display:flex;gap:0.5rem}
+        .social-icon{width:40px;height:40px;background-color:#D21F3C;display:flex;align-items:center;justify-content:center;text-decoration:none;color:white;font-weight:bold;font-size:1.2rem;transition:background-color 0.3s ease}
+        .nav-menu{background-color:#8E1529;padding:0;position:sticky;top:0;z-index:1001;width:100%;margin-bottom:1rem}
+        .nav-links{display:flex;justify-content:space-between;list-style:none;margin:0;padding:0;width:100%}
+        .nav-links li{margin:0;flex:1}
+        .nav-links a{font-family:'Nunito',sans-serif;color:#EBEBEB;text-decoration:none;font-size:1.2rem;font-weight:400;padding:1rem 0.4rem;display:block;transition:background-color 0.3s ease;text-align:center;white-space:nowrap}
+        .content-section{background-color:#EBEBEB;padding:2rem;border-radius:8px;margin-bottom:2rem;box-shadow:0 2px 10px rgba(68,0,18,0.1);display:flex;gap:2rem;align-items:flex-start}
+        .content-text{flex:1}
+        .content-image{flex:0 0 350px}
+        .content-text p{margin-bottom:1rem;font-size:1.1rem;text-align:justify;color:#440012}
+        .content-image img{width:100%;height:auto;border-radius:8px;box-shadow:0 4px 15px rgba(0,0,0,0.1)}
+        .content-image picture{display:block}
+        .content-image img{display:block;max-width:100%;height:auto}
+        @media (max-width:768px){
+        .container{padding:0 5px}
+        .header-top{flex-direction:column;gap:0.5rem;align-items:center;text-align:center;padding:0.5rem 0}
+        .logo{font-size:2rem;font-weight:600}
+        .tagline{font-size:1.1rem;font-weight:700}
+        .content-section{flex-direction:column;gap:1rem;padding:1rem;margin-bottom:1rem}
+        .content-image{flex:none;order:-1}
+        .nav-links{position:fixed;left:-100%;top:0;flex-direction:column;background-color:#8E1529;width:100%;height:100vh;text-align:center;transition:0.3s;box-shadow:0 10px 27px rgba(68,0,18,0.1);padding:0;padding-top:1rem;z-index:1002;display:flex;justify-content:center;align-items:center}
+        .nav-links.active{left:0}
+        .nav-links li{margin:0;width:100%;flex:none}
+        .nav-links a{padding:0.8rem 2rem;font-size:1.3rem;border-bottom:1px solid rgba(235,235,235,0.1)}
+        .nav-links::before{content:"Menu";color:#EBEBEB;font-family:'Nunito',sans-serif;font-size:1.8rem;font-weight:600;display:block;padding:0.5rem 0 1rem 0;border-bottom:2px solid rgba(235,235,235,0.2);margin-bottom:0.5rem;width:100%;text-align:center;position:absolute;top:1rem}
+        .hamburger{display:flex;flex-direction:column;cursor:pointer;padding:5px;background:none;border:none}
+        .hamburger span{width:30px;height:4px;background-color:#0077B8;margin:4px 0;transition:0.3s}
+        }
+    </style>
+    
+    <!-- Load non-critical CSS asynchronously -->
+    <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
 </head>
 <body class="listen-page">
     <header id="header">
@@ -207,27 +314,51 @@
     <a href="#" class="back-to-top" id="backToTop">↑</a>
 
     <script>
-        // Hamburger menu functionality
+        // Enhanced hamburger menu functionality
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
+        
+        // Toggle menu function
+        function toggleMenu() {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
-        });
+        }
+        
+        // Close menu function
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        }
 
-        // Update active navigation link
+        // Hamburger click handler
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Enhanced navigation link handling
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', function(e) {
+                // Check if clicking on current page link
+                if (this.classList.contains('current-page')) {
+                    e.preventDefault();
+                    closeMenu();
+                    return;
+                }
+                
                 // Remove active class from all links
                 document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
                 // Add active class to clicked link
                 this.classList.add('active');
                 
                 // Close mobile menu
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+                closeMenu();
             });
+        });
+
+        // Close menu when clicking on "Menu" text while menu is open
+        navLinks.addEventListener('click', function(e) {
+            // If clicking directly on the nav-links container (Menu area), close menu
+            if (e.target === navLinks) {
+                closeMenu();
+            }
         });
 
         // Smooth scrolling for navigation links
