@@ -1,0 +1,64 @@
+/* Optimized Local Fonts CSS with WOFF2 and Latin Subsets */
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./nunito-400-latin.woff2') format('woff2'),
+       url('./nunito-400-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./nunito-600-latin.woff2') format('woff2'),
+       url('./nunito-600-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./nunito-700-latin.woff2') format('woff2'),
+       url('./nunito-700-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('./opensans-400-latin.woff2') format('woff2'),
+       url('./opensans-400-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('./opensans-500-latin.woff2') format('woff2'),
+       url('./opensans-500-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
+  src: url('./opensans-600-latin.woff2') format('woff2'),
+       url('./opensans-600-latin.ttf') format('truetype');
+  unicode-range: U+0020-007F, U+00A0-00FF, U+0100-017F;
+}
