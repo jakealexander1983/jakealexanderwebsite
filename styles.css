@@ -317,6 +317,23 @@ audio {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Bandcamp player responsive styles */
+.bandcamp-wrapper {
+    max-width: 400px;
+    width: 100%;
+}
+
+@media (max-width: 480px) {
+    .bandcamp-wrapper {
+        max-width: 100%;
+    }
+    
+    .bandcamp-wrapper iframe {
+        width: 100% !important;
+        max-width: 100%;
+    }
+}
+
 .video-wrapper:empty::after {
     content: "Video will be embedded here";
     position: absolute;
@@ -390,7 +407,7 @@ footer {
 }
 
 .footer-social-icon.youtube {
-    background-color: #2E7FB8;
+    background-color: #0077B8;
 }
 
 .footer-social-icon:hover {
